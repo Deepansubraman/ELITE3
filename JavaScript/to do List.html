@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple To-Do List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        ul {
+            margin-top: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script src=""></script>
+</head>
+
+<body>
+
+    <h2>📝 My To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Enter a task..." />
+    <button onclick="addTask()">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+
+
+
+
+    <script>
+        function addTask() {
+            var input = document.getElementById("taskInput").value;
+            var unorder_list = document.getElementById("taskList");
+            var list = document.createElement("li");
+            list.textContent = input;
+            unorder_list.appendChild(list);
+            document.getElementById("taskInput").value = "";
+        }
+
+
+
+        input.addEventListener("keydown", function (event) {
+            if (event.key == "Enter") {
+                addTask();
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+</body>
+
+</html>
