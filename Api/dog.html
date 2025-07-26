@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Dog</title>
+</head>
+<body>
+  <h1>🐕 Random Dog Image</h1>
+  <button onclick="fetchDog()">Fetch Dog</button>
+  <br><br>
+  <img id="dog" src="" width="400" alt="Dog will appear here">
+
+  <script>
+    async function fetchDog() {
+      try {
+        const res = await fetch('https://dog.ceo/api/breeds/image/random');
+        const data = await res.json();
+        document.getElementById('dog').src = data.message;
+      } catch (err) {
+        console.error('Error:', err);
+      }
+    }
+
+    fetchDog();
+  </script>
+</body>
+</html>

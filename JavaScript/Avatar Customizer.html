@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Avatar Customizer</title>
+    <style>
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #333;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+        .glow {
+            box-shadow: 0 0 30px gold;
+            border-color: gold;
+        }
+        .spin {
+            animation: rotate 2s linear infinite;
+        }
+        .big {
+            transform: scale(1.5);
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .controls {
+            text-align: center;
+        }
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        #avatarInfo {
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">👤 Avatar Customizer</h2>
+    
+    <img id="avatar" class="avatar" src="https://pngset.com/images/iron-man-icon-logo-de-iron-man-symbol-trademark-badge-art-transparent-png-2965652.png" alt="User Avatar">
+    
+    <div class="controls">
+        <button onclick="changeAvatar()">🔄 Change Avatar</button>
+        <button onclick="toggleGlow()">✨ Toggle Glow</button>
+        <button onclick="toggleSpin()">🌀 Toggle Spin</button>
+        <button onclick="toggleSize()">📏 Toggle Size</button>
+        <button onclick="showAvatarInfo()">ℹ️ Show Info</button>
+    </div>
+    
+    <div id="avatarInfo"></div>
+
+    <script>
+        const avatar = document.getElementById("avatar");
+        const infoBox = document.getElementById("avatarInfo");
+
+        const avatars = [
+            "https://pngset.com/images/iron-man-icon-logo-de-iron-man-symbol-trademark-badge-art-transparent-png-2965652.png",
+            "https://cdn-icons-png.flaticon.com/512/147/147144.png",
+            "https://cdn-icons-png.flaticon.com/512/2922/2922506.png",
+            "https://cdn-icons-png.flaticon.com/512/2922/2922522.png"
+        ];
+
+        let currentAvatar = 0;
+
+        function changeAvatar() {
+            currentAvatar = (currentAvatar + 1) % avatars.length;
+            avatar.src = avatars[currentAvatar];
+            infoBox.textContent = ""; // Clear info when avatar changes
+        }
+
+        function toggleGlow() {
+            avatar.classList.toggle("glow");
+        }
+
+        function toggleSpin() {
+            avatar.classList.toggle("spin");
+        }
+
+        function toggleSize() {
+            avatar.classList.toggle("big");
+        }
+
+        function showAvatarInfo() {
+            infoBox.innerHTML = `
+                <strong>Avatar Index:</strong> ${currentAvatar + 1}<br>
+                <strong>Glow:</strong> ${avatar.classList.contains("glow")}<br>
+                <strong>Spin:</strong> ${avatar.classList.contains("spin")}<br>
+                <strong>Big:</strong> ${avatar.classList.contains("big")}
+            `;
+        }
+    </script>
+</body>
+</html>
