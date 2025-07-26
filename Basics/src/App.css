@@ -1,0 +1,17 @@
+.nav{
+  color: aliceblue;
+  text-decoration: none;
+  list-style-type: none;
+}
+.Heading{
+  color: aliceblue;
+}
+
+header ul{
+  list-style-type: none;
+  display: flex;
+  gap: 30px;
+  font-size: large;
+  justify-content: end;
+  padding-right: 50px;
+}

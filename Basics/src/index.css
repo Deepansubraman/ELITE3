@@ -1,0 +1,15 @@
+.card-hover-effect:hover {
+  transform: scaleX(1.5) scaleY(1.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  z-index: 1;
+}
+.card{
+    background-color: black;
+    color: rgb(154, 252, 239);
+    
+    border-color: rgb(80, 81, 82);
+}
+.card img{
+    border-bottom: solid 1px rgb(80, 81, 82);
+}
